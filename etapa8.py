@@ -58,10 +58,10 @@ def ip_bloqueado(ip):
     if ip not in ips_bloqueados:
         ips_bloqueados.add(ip)
         msg = f"🔒 IP bloqueado: {ip}"
-        print(colorir(msg, "ROXO"))
+        print(colorir(msg, "CIANO"))
 
 def colorir(texto,cor):
-    cores = {"VERMELHO": "\033[31m","VERDE": "\033[32m","AMARELO": "\033[33m","AZUL": "\033[34m","ROXO": "\033[35m","RESET": "\033[0m"}
+    cores = {"VERMELHO": "\033[31m","VERDE": "\033[32m","AMARELO": "\033[33m","AZUL": "\033[34m","CIANO": "\033[36m","RESET": "\033[0m"}
     return cores.get(cor, cores["RESET"]) + texto + cores["RESET"]
 
 detector_tempo_real("ssh.log")
