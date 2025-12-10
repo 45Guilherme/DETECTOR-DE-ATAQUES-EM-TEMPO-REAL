@@ -59,7 +59,8 @@ def detector_tempo_real(caminho_do_log):
 def ip_bloqueado(ip):
     if ip not in ips_bloqueados:
         ips_bloqueados.add(ip)
-        print(f"🔒 IP bloqueado: {ip}")
+        msg = f"🔒 IP bloqueado: {ip}"
+        print(colorir(msg, "ROXO"))
 
 def colorir(texto,cor):
     cores = {"VERMELHO": "\033[31m","VERDE": "\033[32m","AMARELO": "\033[33m","AZUL": "\033[34m","ROXO": "\033[35m","RESET": "\033[0m"}
