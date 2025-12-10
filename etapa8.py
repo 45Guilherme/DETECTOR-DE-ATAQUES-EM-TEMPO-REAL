@@ -29,13 +29,11 @@ def registrar_tentativa(ip):
         if ip in ips_bloqueados:
             print(f"⛔ Tentativa ignorada (IP bloqueado): {ip}")
             return tentativas.get(ip, 0)
-        if ip not in tentativas:
-                 tentativas[ip] = 1
-        else:
-                tentativas[ip] += 1
-                msg = f"registrar_tentativa: {ip} - Total: {tentativas[ip]}"
-                print(colorir(msg, "AMARELO"))
-                return tentativas[ip]     
+        tentativas[ip] = tentativas.get(ip, 0) + 1
+        msg = f"registrar_tentativa: {ip} - Total: {tentativas[ip]}"
+        print(colorir(msg, "AMARELO"))
+        return tentativas[ip]
+     
 
 
 def verificar_ataque(ip, total_tentativas, limite=5):
@@ -65,6 +63,9 @@ def ip_bloqueado(ip):
 def colorir(texto,cor):
     cores = {"VERMELHO": "\033[31m","VERDE": "\033[32m","AMARELO": "\033[33m","AZUL": "\033[34m","ROXO": "\033[35m","RESET": "\033[0m"}
     return cores.get(cor, cores["RESET"]) + texto + cores["RESET"]
+
+detector_tempo_real("ssh.log")
+
 
 
 
